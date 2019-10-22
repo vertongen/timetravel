@@ -102,3 +102,7 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+credentials.json
+output/*.html
+settings.json
+stories.json
