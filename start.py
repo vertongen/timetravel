@@ -22,4 +22,8 @@ twitter = TwitterRetriever(credentials['twitter']['key'], credentials['twitter']
 twitter.login()
 tweets = twitter.getTweets(location['lat'], location['long'])
 
+# TODO: Get strava flybys 
+# TODO: find cam feeds in the neighbourhood (https://medium.com/@woj_ciech/%EA%93%98amerka-build-interactive-map-of-cameras-from-shodan-a0267849ec0a) 
+# TODO: find other services with location & time information
+
 ResultSaver().SaveTemplate(address,  tweets, images)
