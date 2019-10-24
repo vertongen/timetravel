@@ -76,13 +76,15 @@ class InstagramRetriever:
         
         images = []
         for section in stories['sections']:
+            
             for media in section['layout_content']['medias']:
+                url = "https://www.instagram.com/p/" + media['media']['code'] + "/"
                 if 'image_versions2' in media['media']:
-                    url = media['media']['image_versions2']['candidates'][0]['url']
-                    images.append({'imageUrl': url, 'time': media['media']['taken_at']})
+                    imageUrl = media['media']['image_versions2']['candidates'][0]['url']
+                    images.append({'imageUrl': imageUrl, 'time': media['media']['taken_at'], 'url': url})
                 elif 'carousel_media' in media['media']:
                     for image in media['media']['carousel_media']:
                         if 'image_versions2' in image:
-                            url = image['image_versions2']['candidates'][0]['url']
-                            images.append({'imageUrl': url, 'time': media['media']['taken_at']})
+                            imageUrl = image['image_versions2']['candidates'][0]['url']
+                            images.append({'imageUrl': imageUrl, 'time': media['media']['taken_at'], 'url': url})
         return images
